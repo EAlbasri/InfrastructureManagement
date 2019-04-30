@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="MobileModelFiles">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="ModelName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="MobileManufacturer"
+        Association="MobileModelFiles_MobileManufacturerFiles"
+        FromEnd="MobileModelFiles"
+        ToEnd="MobileManufacturerFiles" />
+      <NavigationProperty
+        Name="EmployeeMobileCollection"
+        Association="EmployeeMobileFiles_MobileModelFiles"
+        FromEnd="MobileModelFiles"
+        ToEnd="EmployeeMobileFiles" />
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <Hidden />
+          <UseForConcurrency />
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="MobileModelFilesSet"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="MobileModelFiles" />
+    <QueryOperation
+      Name="MobileModelFilesSet_Single"
+      ReturnType="MobileModelFiles">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MobileModelFilesSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="MobileModelFilesSet_SingleOrDefault"
+      ReturnType="MobileModelFiles">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MobileModelFilesSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="EmployeeMobileFiles_MobileModelFilesSet"
+      Association="EmployeeMobileFiles_MobileModelFiles">
+      <AssociationSetEnd
+        Name="EmployeeMobileFiles"
+        EntitySet="EmployeeMobileFilesSet" />
+      <AssociationSetEnd
+        Name="MobileModelFiles"
+        EntitySet="MobileModelFilesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="MobileModelFilesSet">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="MobileModelFiles_MobileManufacturerFiles"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="EmployeeMobileFiles_MobileModelFilesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="EmployeeMobileFiles_MobileModelFilesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[EmployeeMobileFiles_MobileModelFilesSet]/Members[EmployeeMobileFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="EmployeeMobileFiles_MobileModelFiles" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[EmployeeMobileFiles_MobileModelFilesSet]/Members[MobileModelFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="EmployeeMobileFiles_MobileModelFiles">
+    <AssociationEnd
+      Name="EmployeeMobileFiles"
+      Multiplicity="Many"
+      EntityType="EmployeeMobileFiles" />
+    <AssociationEnd
+      Name="MobileModelFiles"
+      Multiplicity="One"
+      EntityType="MobileModelFiles">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

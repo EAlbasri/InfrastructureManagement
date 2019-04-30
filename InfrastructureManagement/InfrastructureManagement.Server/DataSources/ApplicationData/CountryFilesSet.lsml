@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="CountryFiles">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="CountryName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="CountryCode"
+        PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ISOCode"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="ISO Code" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="ServiceProviderCollection"
+        Association="ServiceProviderFiles_CountryFiles"
+        FromEnd="CountryFiles"
+        ToEnd="ServiceProviderFiles" />
+      <NavigationProperty
+        Name="VendorCollection"
+        Association="VendorFiles_CountryFiles"
+        FromEnd="CountryFiles"
+        ToEnd="VendorFiles" />
+      <NavigationProperty
+        Name="CompanySystemCollection"
+        Association="CompanySystemFiles_CountryFiles"
+        FromEnd="CountryFiles"
+        ToEnd="CompanySystemFiles" />
+      <NavigationProperty
+        Name="InventoryDevicesCollection"
+        Association="InventoryDeviceFiles_CountryFiles"
+        FromEnd="CountryFiles"
+        ToEnd="InventoryDeviceFiles" />
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <Hidden />
+          <UseForConcurrency />
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="CountryFilesSet"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="CountryFiles" />
+    <QueryOperation
+      Name="CountryFilesSet_Single"
+      ReturnType="CountryFiles">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CountryFilesSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="CountryFilesSet_SingleOrDefault"
+      ReturnType="CountryFiles">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CountryFilesSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="ServiceProviderFiles_CountryFilesSet"
+      Association="ServiceProviderFiles_CountryFiles">
+      <AssociationSetEnd
+        Name="ServiceProviderFiles"
+        EntitySet="ServiceProviderFilesSet" />
+      <AssociationSetEnd
+        Name="CountryFiles"
+        EntitySet="CountryFilesSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="VendorFiles_CountryFilesSet"
+      Association="VendorFiles_CountryFiles">
+      <AssociationSetEnd
+        Name="VendorFiles"
+        EntitySet="VendorFilesSet" />
+      <AssociationSetEnd
+        Name="CountryFiles"
+        EntitySet="CountryFilesSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="CompanySystemFiles_CountryFilesSet"
+      Association="CompanySystemFiles_CountryFiles">
+      <AssociationSetEnd
+        Name="CompanySystemFiles"
+        EntitySet="CompanySystemFilesSet" />
+      <AssociationSetEnd
+        Name="CountryFiles"
+        EntitySet="CountryFilesSet" />
+    </AssociationSet>
+    <AssociationSet
+      Name="InventoryDeviceFiles_CountryFilesSet"
+      Association="InventoryDeviceFiles_CountryFiles">
+      <AssociationSetEnd
+        Name="InventoryDeviceFiles"
+        EntitySet="InventoryDeviceFilesSet" />
+      <AssociationSetEnd
+        Name="CountryFiles"
+        EntitySet="CountryFilesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="ServiceProviderFiles_CountryFiles">
+    <AssociationEnd
+      Name="ServiceProviderFiles"
+      Multiplicity="Many"
+      EntityType="ServiceProviderFiles" />
+    <AssociationEnd
+      Name="CountryFiles"
+      Multiplicity="One"
+      EntityType="CountryFiles">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="ServiceProviderFiles_CountryFilesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ServiceProviderFiles_CountryFilesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ServiceProviderFiles_CountryFilesSet]/Members[ServiceProviderFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ServiceProviderFiles_CountryFiles1" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ServiceProviderFiles_CountryFilesSet]/Members[CountryFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="VendorFiles_CountryFilesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="VendorFiles_CountryFilesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[VendorFiles_CountryFilesSet]/Members[VendorFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="VendorFiles_CountryFiles" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[VendorFiles_CountryFilesSet]/Members[CountryFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="CompanySystemFiles_CountryFilesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="CompanySystemFiles_CountryFilesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[CompanySystemFiles_CountryFilesSet]/Members[CompanySystemFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="CompanySystemFiles_CountryFiles" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[CompanySystemFiles_CountryFilesSet]/Members[CountryFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="InventoryDeviceFiles_CountryFilesSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="InventoryDeviceFiles_CountryFilesSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[InventoryDeviceFiles_CountryFilesSet]/Members[InventoryDeviceFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="InventoryDeviceFiles_CountryFiles" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[InventoryDeviceFiles_CountryFilesSet]/Members[CountryFiles]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="VendorFiles_CountryFiles">
+    <AssociationEnd
+      Name="VendorFiles"
+      Multiplicity="Many"
+      EntityType="VendorFiles" />
+    <AssociationEnd
+      Name="CountryFiles"
+      EntityType="CountryFiles">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="CompanySystemFiles_CountryFiles">
+    <AssociationEnd
+      Name="CompanySystemFiles"
+      Multiplicity="Many"
+      EntityType="CompanySystemFiles" />
+    <AssociationEnd
+      Name="CountryFiles"
+      EntityType="CountryFiles">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="InventoryDeviceFiles_CountryFiles">
+    <AssociationEnd
+      Name="InventoryDeviceFiles"
+      Multiplicity="Many"
+      EntityType="InventoryDeviceFiles" />
+    <AssociationEnd
+      Name="CountryFiles"
+      Multiplicity="One"
+      EntityType="CountryFiles">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

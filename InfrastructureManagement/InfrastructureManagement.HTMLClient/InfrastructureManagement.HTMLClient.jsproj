@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <UseDesignTimeFeatures>true</UseDesignTimeFeatures>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7eda97e6-7185-4ab7-a996-395cc2c24d80}</ProjectGuid>
+    <LightSwitchVersion>v5.0</LightSwitchVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\v5.0\MobileClient\Microsoft.LightSwitch.MobileClient.Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\v5.0\MobileClient\Microsoft.LightSwitch.MobileClient.props" />
+  <PropertyGroup>
+    <!--TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion-->
+    <LightSwitchProjectTypeV45>Client</LightSwitchProjectTypeV45>
+    <LightSwitchProjectSubType>JScript</LightSwitchProjectSubType>
+    <ProjectTypeGuids>{8BB0C5E8-0616-4F60-8E55-A43933E57E9C};{262852c6-cd72-467d-83fe-5eeb1973a190}</ProjectTypeGuids>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <SupportedCultures>en-US</SupportedCultures>
+    <DefaultPlatform>AnyCPU</DefaultPlatform>
+    <ClientProjectName>HTMLClient</ClientProjectName>
+    <ServerProjectReference>..\InfrastructureManagement.Server\InfrastructureManagement.Server.csproj</ServerProjectReference>
+    <LightSwitchDisplayName>HTMLClient</LightSwitchDisplayName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Content\dark-theme-2.5.3.css" />
+    <Content Include="Content\Icons\InventoryManagement.png" />
+    <Content Include="Content\Icons\VendorsManagement.png" />
+    <Content Include="Content\Icons\EditIcon.png" />
+    <Content Include="Content\Icons\LicenseManagement.png" />
+    <Content Include="Content\Icons\MobileManagement.png" />
+    <Content Include="Content\Icons\PublishedServices.png" />
+    <Content Include="Content\Icons\SPManagement.png" />
+    <Content Include="Content\Icons\SystemsAccess.png" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\icons-18-black.png" />
+    <Content Include="Content\Images\icons-18-white.png" />
+    <Content Include="Content\Images\icons-36-black.png" />
+    <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\msls-black-icons-18.png" />
+    <Content Include="Content\Images\msls-black-icons-36.png" />
+    <Content Include="Content\Images\msls-loader-dark.gif" />
+    <Content Include="Content\Images\msls-loader-light.gif" />
+    <Content Include="Content\Images\msls-white-icons-18.png" />
+    <Content Include="Content\Images\msls-white-icons-36.png" />
+    <Content Include="Content\Images\msls-blue-icons-36.png" />
+    <Content Include="Content\jquery.mobile-1.3.0.css" />
+    <Content Include="Content\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Content\light-theme-2.5.3.css" />
+    <Content Include="Content\msls-2.5.3.css" />
+    <Content Include="Content\msls-2.5.3.min.css" />
+    <Content Include="Content\msls-dark-2.5.3.css" />
+    <Content Include="Content\msls-light-2.5.3.css" />
+    <Content Include="default.htm" />
+    <Content Include="Content\user-customization.css" />
+    <Content Include="Content\Images\user-logo.png" />
+    <Content Include="Content\Images\user-logo.ico" />
+    <Content Include="Content\Images\user-logo-144.png" />
+    <Content Include="Content\Images\user-splash-screen.png" />
+    <Content Include="Content\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Screens\CompanySystemManagements\BrowseCompanySystemManagements.lsml.js">
+      <DependentUpon>BrowseCompanySystemManagements.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\CompanySystemManagements\ViewCompanySystemManagement.lsml.js">
+      <DependentUpon>ViewCompanySystemManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\CountryManagements\ViewCountryManagement.lsml.js">
+      <DependentUpon>ViewCountryManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\Home.lsml.js">
+      <DependentUpon>Home.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\InventoryManagements\ViewInventoryManagement.lsml.js">
+      <DependentUpon>ViewInventoryManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\PublishedServiceManagements\ViewPublishedServiceManagement.lsml.js">
+      <DependentUpon>ViewPublishedServiceManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\ServiceProviderManagements\BrowseServiceProviderManagements.lsml.js">
+      <DependentUpon>BrowseServiceProviderManagements.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\ServiceProviderManagements\ViewServiceProviderManagement.lsml.js">
+      <DependentUpon>ViewServiceProviderManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\SoftwareCompanyManagements\ViewSoftwareCompanyManagement.lsml.js">
+      <DependentUpon>ViewSoftwareCompanyManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\VendorsManagements\ViewVendorsManagement.lsml.js">
+      <DependentUpon>ViewVendorsManagement.lsml</DependentUpon>
+    </Content>
+    <Content Include="Scripts\datajs-1.1.3.js" />
+    <Content Include="Scripts\datajs-1.1.3.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0-vsdoc.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.min.js" />
+    <Content Include="Scripts\lsu.js" />
+    <Content Include="Scripts\msls.js" />
+    <Content Include="Scripts\msls-2.5.3-vsdoc.js" />
+    <Content Include="Scripts\msls-2.5.3.js" />
+    <Content Include="Scripts\msls-2.5.3.min.js" />
+    <Content Include="Scripts\sp-overlay.js" />
+    <Content Include="Scripts\winjs-1.0.js" />
+    <Content Include="Scripts\winjs-1.0.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceMetadataReference Include="..\InfrastructureManagement.Server\InfrastructureManagement.Server.csproj">
+      <Visible>false</Visible>
+    </ServiceMetadataReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LightSwitchModel Include="Properties\ApplicationData\CountryFilesSet.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\InventoryGroupFilesSet.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\SoftwareCompanyFilesSet.lsml" />
+    <LightSwitchModel Include="Properties\ApplicationData\VendorFilesSet.lsml" />
+    <LightSwitchModel Include="Properties\Client.lsml">
+      <ProjectCritical>true</ProjectCritical>
+    </LightSwitchModel>
+    <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\CompanySystemManagements\AddEditCompanySystemManagement.lsml" />
+    <LightSwitchModel Include="Screens\CompanySystemManagements\BrowseCompanySystemManagements.lsml" />
+    <LightSwitchModel Include="Screens\CompanySystemManagements\ViewCompanySystemManagement.lsml" />
+    <LightSwitchModel Include="Screens\CountryManagements\AddEditCountryManagement.lsml" />
+    <LightSwitchModel Include="Screens\CountryManagements\BrowseCountryManagements.lsml" />
+    <LightSwitchModel Include="Screens\CountryManagements\ViewCountryManagement.lsml" />
+    <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\InventoryManagements\AddEditInventoryManagement.lsml" />
+    <LightSwitchModel Include="Screens\InventoryManagements\BrowseInventoryManagements.lsml" />
+    <LightSwitchModel Include="Screens\InventoryManagements\ViewInventoryManagement.lsml" />
+    <LightSwitchModel Include="Screens\PublishedServiceManagements\AddEditPublishedServiceManagement.lsml" />
+    <LightSwitchModel Include="Screens\PublishedServiceManagements\BrowsePublishedServiceManagements.lsml" />
+    <LightSwitchModel Include="Screens\PublishedServiceManagements\ViewPublishedServiceManagement.lsml" />
+    <LightSwitchModel Include="Screens\ServiceProviderManagements\AddEditServiceProviderContact.lsml" />
+    <LightSwitchModel Include="Screens\ServiceProviderManagements\AddEditServiceProviderManagement.lsml" />
+    <LightSwitchModel Include="Screens\ServiceProviderManagements\AddEditServiceProviderMobilePackage.lsml" />
+    <LightSwitchModel Include="Screens\ServiceProviderManagements\BrowseServiceProviderManagements.lsml" />
+    <LightSwitchModel Include="Screens\ServiceProviderManagements\ViewServiceProviderManagement.lsml" />
+    <LightSwitchModel Include="Screens\SoftwareCompanyManagements\AddEditSoftwareCompanyManagement.lsml" />
+    <LightSwitchModel Include="Screens\SoftwareCompanyManagements\AddEditSoftwareLicense.lsml" />
+    <LightSwitchModel Include="Screens\SoftwareCompanyManagements\BrowseSoftwareCompanyManagement.lsml" />
+    <LightSwitchModel Include="Screens\SoftwareCompanyManagements\ViewSoftwareCompanyManagement.lsml" />
+    <LightSwitchModel Include="Screens\VendorsManagements\AddEditVendorContact.lsml" />
+    <LightSwitchModel Include="Screens\VendorsManagements\AddEditVendorsManagement.lsml" />
+    <LightSwitchModel Include="Screens\VendorsManagements\BrowseVendorsManagement.lsml" />
+    <LightSwitchModel Include="Screens\VendorsManagements\ViewVendorsManagement.lsml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ClientBuildFile Include="GeneratedArtifacts\model.json">
+      <SubFolder>Content\Resources\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\data.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\viewModel.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\usercode.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\resources.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\v5.0\MobileClient\Microsoft.LightSwitch.MobileClient.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\v5.0\Microsoft.LightSwitch.Build.Tasks.targets" />
+  <!-- Redefine the targets to be empty -->
+  <Target Name="GetXapOutputFile" />
+  <PropertyGroup>
+    <AppxPackage>false</AppxPackage>
+    <AppxGeneratePriEnabled>false</AppxGeneratePriEnabled>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

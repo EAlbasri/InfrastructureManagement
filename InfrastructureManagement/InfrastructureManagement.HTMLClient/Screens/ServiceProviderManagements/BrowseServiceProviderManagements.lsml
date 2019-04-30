@@ -1,0 +1,1250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.InfrastructureManagement.HTMLClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="BrowseServiceProviderManagements">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="ServiceProviderManagements" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.MobileWeb:Screen">
+        <ContentItem
+          Name="Tabs"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:TabPages">
+          <ContentItem
+            Name="ServiceProviderManagementList"
+            Kind="Group">
+            <ContentItem
+              Name="ServiceProviderFilesSet"
+              IsHidden="True"
+              Kind="Collection"
+              DataType="CollectionView$ServiceProviderFiles"
+              View="Microsoft.LightSwitch.MobileWeb:List">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="ServiceProviderFilesSet" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="BrowseServiceProviderManagements/Properties[ServiceProviderFilesSet]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="rows"
+                Kind="Details"
+                DataType="ServiceProviderFiles"
+                View="Microsoft.LightSwitch.MobileWeb:Summary">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="rows" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="ServiceProviderName"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ServiceProviderFiles/Properties[ServiceProviderName]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Large"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="Country"
+                  Kind="Details"
+                  DataType="CountryFiles">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ServiceProviderFiles/Properties[Country]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RowTemplate1"
+                    Kind="Details"
+                    DataType="CountryFiles">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Small"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem
+                  Name="CreatedBy"
+                  Kind="Value"
+                  DataType=":Person?">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="ServiceProviderFiles/Properties[CreatedBy]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[FontStyle]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Small"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="FitToContent"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="!module/Methods[showViewServiceProviderManagement]">
+                        <CallExpression.Attributes>
+                          <AssociatedCollection
+                            Collection="BrowseServiceProviderManagements/Properties[ServiceProviderFilesSet]" />
+                        </CallExpression.Attributes>
+                        <ArgumentExpression
+                          Parameter="ServiceProviderFiles">
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="BrowseServiceProviderManagements/Properties[ServiceProviderFilesSet]" />
+                            <MemberExpression
+                              Member="selectedItem" />
+                          </ChainExpression>
+                        </ArgumentExpression>
+                      </CallExpression>
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem
+              Name="Group"
+              Kind="Group"
+              View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+              <ContentItem
+                Name="AddServiceProviderFiles"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Add" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-add"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="!module/Methods[showAddEditServiceProviderManagement]">
+                          <CallExpression.Attributes>
+                            <AssociatedCollection
+                              Collection="BrowseServiceProviderManagements/Properties[ServiceProviderFilesSet]" />
+                            <CreateNewEntity
+                              TargetParameter="!module/Methods[showAddEditServiceProviderManagement]/Parameters[ServiceProviderFiles]" />
+                          </CallExpression.Attributes>
+                        </CallExpression>
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="EditServiceProviderFiles"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Edit" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="msls-edit"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="!module/Methods[showAddEditServiceProviderManagement]">
+                          <ArgumentExpression
+                            Parameter="ServiceProviderFiles">
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="BrowseServiceProviderManagements/Properties[ServiceProviderPrp]" />
+                            </ChainExpression>
+                          </ArgumentExpression>
+                        </CallExpression>
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem
+              Name="ServiceProviderPrp"
+              Kind="Details"
+              DataType="ServiceProviderFiles"
+              View="Microsoft.LightSwitch.MobileWeb:DetailsModalPicker">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Service Provider" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="BrowseServiceProviderManagements/Properties[ServiceProviderPrp]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="ServiceProviderPrpTemplate"
+                Kind="Details"
+                DataType="ServiceProviderFiles">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="ServiceProviderFiles"
+                  Kind="Details"
+                  DataType="ServiceProviderFiles">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem
+              Name="TabControl"
+              Kind="Group">
+              <ContentItem
+                Name="PublicIPs"
+                Kind="Group">
+                <ContentItem
+                  Name="Group1"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                  <ContentItem
+                    Name="AddServiceProviderPublicIPFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Add" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-add"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditPublishedServiceManagement]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderPublicIPFilesSet]" />
+                                <CreateNewEntity
+                                  TargetParameter="!module/Methods[showAddEditPublishedServiceManagement]/Parameters[ServiceProviderPublicIPFiles]" />
+                              </CallExpression.Attributes>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="EditServiceProviderPublicIPFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Edit" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-edit"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditPublishedServiceManagement]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderPublicIPFilesSet]" />
+                              </CallExpression.Attributes>
+                              <ArgumentExpression
+                                Parameter="ServiceProviderPublicIPFiles">
+                                <ChainExpression>
+                                  <MemberExpression
+                                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderPublicIPFilesSet]" />
+                                  <MemberExpression
+                                    Member="selectedItem" />
+                                </ChainExpression>
+                              </ArgumentExpression>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="ServiceProviderPublicIPFilesSet"
+                  Kind="Collection"
+                  DataType="CollectionView$ServiceProviderPublicIPFiles"
+                  View="Microsoft.LightSwitch.MobileWeb:Table">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="BrowseServiceProviderManagements/Properties[ServiceProviderPublicIPFilesSet]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="ServiceProviderPublicIPFilesSetTemplate"
+                    Kind="Details"
+                    DataType="ServiceProviderPublicIPFiles">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="ServiceProvider_Country_CountryName"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Country" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[ServiceProvider]" />
+                            <MemberExpression
+                              Member="Country" />
+                            <MemberExpression
+                              Member="CountryName" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ServiceProvider"
+                      Kind="Details"
+                      DataType="ServiceProviderFiles">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[ServiceProvider]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="ServiceProviderFiles1"
+                        Kind="Details"
+                        DataType="ServiceProviderFiles">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                      </ContentItem>
+                    </ContentItem>
+                    <ContentItem
+                      Name="PublicIP"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[PublicIP]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="AssignedService"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[AssignedService]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="InternalIP"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[InternalIP]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="DMZIP"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[DMZIP]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="InternalLink"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:WebAddress?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[InternalLink]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ExternalLink"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:WebAddress?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderPublicIPFiles/Properties[ExternalLink]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="MobilePackages"
+                Kind="Group">
+                <ContentItem
+                  Name="Group2"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                  <ContentItem
+                    Name="AddServiceProviderMobilePackageFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Add" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-add"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditServiceProviderMobilePackage]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderMobilePackageFilesSet]" />
+                                <CreateNewEntity
+                                  TargetParameter="!module/Methods[showAddEditServiceProviderMobilePackage]/Parameters[ServiceProviderMobilePackageFiles]" />
+                              </CallExpression.Attributes>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="EditServiceProviderMobilePackageFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Edit" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-edit"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditServiceProviderMobilePackage]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderMobilePackageFilesSet]" />
+                              </CallExpression.Attributes>
+                              <ArgumentExpression
+                                Parameter="ServiceProviderMobilePackageFiles">
+                                <ChainExpression>
+                                  <MemberExpression
+                                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderMobilePackageFilesSet]" />
+                                  <MemberExpression
+                                    Member="selectedItem" />
+                                </ChainExpression>
+                              </ArgumentExpression>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="ServiceProviderMobilePackageFilesSet"
+                  Kind="Collection"
+                  DataType="CollectionView$ServiceProviderMobilePackageFiles"
+                  View="Microsoft.LightSwitch.MobileWeb:Table">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="BrowseServiceProviderManagements/Properties[ServiceProviderMobilePackageFilesSet]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="ServiceProviderMobilePackageFilesSetTemplate"
+                    Kind="Details"
+                    DataType="ServiceProviderMobilePackageFiles">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="ServiceProvider_Country_CountryName1"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Country" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[ServiceProvider]" />
+                            <MemberExpression
+                              Member="Country" />
+                            <MemberExpression
+                              Member="CountryName" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ServiceProvider1"
+                      Kind="Details"
+                      DataType="ServiceProviderFiles">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[ServiceProvider]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="ServiceProviderFiles2"
+                        Kind="Details"
+                        DataType="ServiceProviderFiles">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                      </ContentItem>
+                    </ContentItem>
+                    <ContentItem
+                      Name="MobilePackageName"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[MobilePackageName]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="DataPackage"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[DataPackage]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="FreeMinutesToSame"
+                      Kind="Value"
+                      DataType=":Int64?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[FreeMinutesToSame]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="FreeMinutesToOther"
+                      Kind="Value"
+                      DataType=":Int64?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[FreeMinutesToOther]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="PackageCost"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:Money">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderMobilePackageFiles/Properties[PackageCost]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem
+                Name="ContactsList"
+                Kind="Group">
+                <ContentItem
+                  Name="Group3"
+                  Kind="Group"
+                  View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
+                  <ContentItem
+                    Name="AddServiceProviderContactFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Add" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-add"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditServiceProviderContact]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderContactFilesSet]" />
+                                <CreateNewEntity
+                                  TargetParameter="!module/Methods[showAddEditServiceProviderContact]/Parameters[ServiceProviderContactFiles]" />
+                              </CallExpression.Attributes>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="EditServiceProviderContactFiles"
+                    Kind="Command">
+                    <ContentItem.Attributes>
+                      <DisplayName
+                        Value="Edit" />
+                    </ContentItem.Attributes>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="msls-edit"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <CallExpression
+                              Target="!module/Methods[showAddEditServiceProviderContact]">
+                              <CallExpression.Attributes>
+                                <AssociatedCollection
+                                  Collection="BrowseServiceProviderManagements/Properties[ServiceProviderContactFilesSet]" />
+                              </CallExpression.Attributes>
+                              <ArgumentExpression
+                                Parameter="ServiceProviderContactFiles">
+                                <ChainExpression>
+                                  <MemberExpression
+                                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderContactFilesSet]" />
+                                  <MemberExpression
+                                    Member="selectedItem" />
+                                </ChainExpression>
+                              </ArgumentExpression>
+                            </CallExpression>
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                </ContentItem>
+                <ContentItem
+                  Name="ServiceProviderContactFilesSet"
+                  Kind="Collection"
+                  DataType="CollectionView$ServiceProviderContactFiles"
+                  View="Microsoft.LightSwitch.MobileWeb:Table">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="BrowseServiceProviderManagements/Properties[ServiceProviderContactFilesSet]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="ServiceProviderContactFilesSetTemplate"
+                    Kind="Details"
+                    DataType="ServiceProviderContactFiles">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="ServiceProvider_Country_CountryName2"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.Attributes>
+                        <DisplayName
+                          Value="Country" />
+                      </ContentItem.Attributes>
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[ServiceProvider]" />
+                            <MemberExpression
+                              Member="Country" />
+                            <MemberExpression
+                              Member="CountryName" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ServiceProvider2"
+                      Kind="Details"
+                      DataType="ServiceProviderFiles">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[ServiceProvider]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="ServiceProviderFiles3"
+                        Kind="Details"
+                        DataType="ServiceProviderFiles">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                      </ContentItem>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ContactName"
+                      Kind="Value"
+                      DataType=":String">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[ContactName]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Designation"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[Designation]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Phone"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[Phone]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Mobile"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:PhoneNumber?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[Mobile]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Email"
+                      Kind="Value"
+                      DataType="Microsoft.LightSwitch.Extensions:EmailAddress?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[Email]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                    <ContentItem
+                      Name="Remarks"
+                      Kind="Value"
+                      DataType=":String?">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ServiceProviderContactFiles/Properties[Remarks]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                </ContentItem>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem.PropertySources>
+            <ControlPropertySource
+              Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[BrowseOnly]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression
+                    Value="True"
+                    ResultType=":Boolean" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+        </ContentItem>
+        <ContentItem
+          Name="Popups"
+          Kind="Group"
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="showTab">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="tabName"
+          ParameterType=":String" />
+      </ScreenMethod>
+      <ScreenMethod
+        Name="showDialog">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+        <ScreenMethodParameter
+          Name="dialogName"
+          ParameterType=":String" />
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="ServiceProviderFilesSet"
+        PageSize="45"
+        PropertyType="CollectionView$ServiceProviderFiles">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ServiceProviderFilesSetQuery"
+            ReturnType="ServiceProviderFiles*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[ServiceProviderFilesSet]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseServiceProviderManagements/Properties[ServiceProviderFilesSet]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="ServiceProviderPrp"
+        PropertyType="ServiceProviderFiles" />
+      <ScreenCollectionProperty
+        Name="ServiceProviderPublicIPFilesSet"
+        PageSize="45"
+        PropertyType="CollectionView$ServiceProviderPublicIPFiles">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ServiceProviderPublicIPFilesSetQuery"
+            ReturnType="ServiceProviderPublicIPFiles*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Equal">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="ServiceProviderPublicIPFiles/Properties[ServiceProvider]" />
+                      <MemberExpression
+                        Member="Id" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="ServiceProviderID" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[ServiceProviderPublicIPFilesSet]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="ServiceProviderID"
+                IsOptional="True"
+                ParameterType=":Int32?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseServiceProviderManagements/Properties[ServiceProviderPublicIPFilesSet]/Query">
+              <ArgumentExpression
+                Parameter="ServiceProviderID">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderPrp]" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="ServiceProviderMobilePackageFilesSet"
+        PageSize="45"
+        PropertyType="CollectionView$ServiceProviderMobilePackageFiles">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ServiceProviderMobilePackageFilesSetQuery"
+            ReturnType="ServiceProviderMobilePackageFiles*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Equal">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="ServiceProviderMobilePackageFiles/Properties[ServiceProvider]" />
+                      <MemberExpression
+                        Member="Id" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="ServiceProviderID" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[ServiceProviderMobilePackageFilesSet]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="ServiceProviderID"
+                IsOptional="True"
+                ParameterType=":Int32?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseServiceProviderManagements/Properties[ServiceProviderMobilePackageFilesSet]/Query">
+              <ArgumentExpression
+                Parameter="ServiceProviderID">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderPrp]" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="ServiceProviderContactFilesSet"
+        PageSize="45"
+        PropertyType="CollectionView$ServiceProviderContactFiles">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ServiceProviderContactFilesSetQuery"
+            ReturnType="ServiceProviderContactFiles*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Equal">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="ServiceProviderContactFiles/Properties[ServiceProvider]" />
+                      <MemberExpression
+                        Member="Id" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="ServiceProviderID" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[ServiceProviderContactFilesSet]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="ServiceProviderID"
+                ParameterType=":Int32?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="BrowseServiceProviderManagements/Properties[ServiceProviderContactFilesSet]/Query">
+              <ArgumentExpression
+                Parameter="ServiceProviderID">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="BrowseServiceProviderManagements/Properties[ServiceProviderPrp]" />
+                  <MemberExpression
+                    Member="Id" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="showBrowseServiceProviderManagements">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="BrowseServiceProviderManagements" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>
